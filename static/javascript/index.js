@@ -102,6 +102,38 @@ function keyCheckVigenere(method, flag) {
     } else sendData(flag, method, key)
 }
 
+// intro stuff 
+document.querySelectorAll(".desc-header-container").forEach(cipher => {
+    
+    cipher.addEventListener("click", () => {
+        const expanded = cipher.dataset.expanded 
+        const description = cipher.children[1]
+
+        description.classList.remove("hidden")
+        console.log("YOOOOOOOOO")
+        description.addEventListener("animationend", (event) => {
+            // if (expanded === "true") {description.classList.add("hidden"); description.classList.remove("fade-out")}
+            // else {description.classList.remove("fade-in")}
+            console.log("IN DESCRIPTION ON CLICK, EXPANDED HERE IS: ", expanded)
+            console.log(event)
+            if (event.animationName === "fade-out")  {
+                description.classList.remove("fade-out")
+                description.classList.add("hidden")
+            } else {
+                description.classList.remove("fade-in")
+            }
+        }) 
+        // play animation
+        console.log("general expanded is, ", expanded)
+        if (expanded == "false") description.classList.add("fade-in") 
+        else description.classList.add("fade-out")
+        
+
+        cipher.dataset.expanded = ( expanded === "true" ) ? "false":"true"
+        console.log(" THIS IS CIPHER.DATASET.EXPANDED", cipher.dataset.expanded)
+    })
+})
+
 // add event listeners for the encrypt/decrypt buttons 
 const encryptButton = document.querySelector("#encrypt")
 const decryptButton = document.querySelector("#decrypt")
