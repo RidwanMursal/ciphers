@@ -37,6 +37,7 @@ def vigenere_cipher():
     cipher = ciphers.Vigenere(request_data["key"])
     if (request_data["encryptFlag"] == "encrypt"):
         response = {"text": cipher.encrypt(request_data["userInput"]) }
+        print("this is the response", response)
     else: 
         response = {"text": cipher.decrypt(request_data["userInput"]) }
 

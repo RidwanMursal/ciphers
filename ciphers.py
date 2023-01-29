@@ -695,7 +695,7 @@ class Simple_Substitution:
         output = "Simple Substitution Cipher:\nkey = {}\n{}\n{}".format(self.key[0],a[0],a[1])
         return output 
     
-    def encrypt(self,plaintext):
+    def encrypt(self,plaintext: str):
         """
         ----------------------------------------------------
         Parameters:   plaintext (str)
@@ -764,7 +764,7 @@ class Vigenere:
     ----------------------------------------------------
     """
     
-    DEFAULT_KEY = 'k'
+    DEFAULT_KEY = 'key'
     
     def __init__(self,key=DEFAULT_KEY):
         """
@@ -807,6 +807,7 @@ class Vigenere:
             key = self.DEFAULT_KEY
         
         key = utilities.clean_text(key, utilities.get_base("nonalpha") + " ")
+        if (len(key) < 2): key += "default"
         self._key = key.lower()
         return boolean
     
@@ -877,22 +878,8 @@ class Vigenere:
         """
         assert type(plaintext) == str, 'invalid plaintext'
         
-        if len(self._key) == 1:
-            return self._encrypt_auto(plaintext)
-        else:
-            return self._encrypt_run(plaintext)
-
-    def _encrypt_auto(self,plaintext):
-        """
-        ----------------------------------------------------
-        Parameters:   plaintext (str)
-        Return:       ciphertext (str)
-        Description:  Private helper function
-                      Encryption using Vigenere Cipher Using an autokey
-        ---------------------------------------------------
-        """
-        # your code here
-        return ''
+        
+        return self._encrypt_run(plaintext)
 
     def _encrypt_run(self,plaintext):
         """
@@ -934,6 +921,7 @@ class Vigenere:
                 
         # Add back non alpha characters 
         ciphertext = utilities.insert_positions(ciphertext, positions)
+        print("vig ciphertext is", ciphertext)
         
         return ciphertext
     
@@ -948,23 +936,8 @@ class Vigenere:
         ---------------------------------------------------
         """
         assert type(ciphertext) == str, 'invalid input'
-        
-        if len(self._key) == 1:
-            return self._decryption_auto(ciphertext)
-        else:
-            return self._decryption_run(ciphertext)
 
-    def _decryption_auto(self,ciphertext):
-        """
-        ----------------------------------------------------
-        Parameters:   ciphertext (str)
-        Return:       plaintext (str)
-        Description:  Private Helper method
-                      Decryption using Vigenere Cipher Using autokey
-        ---------------------------------------------------
-        """
-        # your code here
-        return ''
+        return self._decryption_run(ciphertext)
 
     def _decryption_run(self,ciphertext):
         """
@@ -1018,20 +991,40 @@ class Ceaser_Cipher():
     def get_shifted_base(self): 
         return utilities.shift_string(self._base, self._key, "l")
     
-    def encrypt(self, plaintext):
+    def encrypt(self, plaintext: str):
+        # prepare new base based on key
         shifted_base = self.get_shifted_base()
-        print("this is the shifted base", shifted_base) 
+        print("this is the shifted base", shifted_base)
+
+        # encrypt  
         ciphertext = ""
         for element in plaintext: 
-            ciphertext += shifted_base[self._base.find(element)]
+            if (not element.isalpha()): ciphertext += element 
+            else:  
+                if (element.isupper()): 
+                    index = self._base.find(element.lower())
+                    ciphertext += shifted_base[index].upper()
+                else: 
+                    index = self._base.find(element)
+                    ciphertext += shifted_base[index]
         return ciphertext
     
-    def decrypt(self, ciphertext):
+    def decrypt(self, ciphertext: str):
+        # prepare new base baded on key
         shifted_base = self.get_shifted_base()
         print("this is the shifted base", shifted_base) 
         plaintext = ""
-        for element in ciphertext: 
-            plaintext += self._base[shifted_base.find(element)]
+
+        # decrypt
+        for element in ciphertext:  
+            if (not element.isalpha()): plaintext += element 
+            else: 
+                if (element.isupper()): 
+                    index = shifted_base.find(element.lower())
+                    plaintext += self._base[index].upper()
+                else: 
+                    index = shifted_base.find(element)
+                    plaintext += self._base[index]
         return plaintext
             
 

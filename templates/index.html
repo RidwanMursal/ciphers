@@ -1,218 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {margin: 0; padding: 0; box-sizing: border-box; size: 18px;}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        size: 18px;
+        font-family: "Poppins", sans-serif;
+      }
 
-        @keyframes fade-in {
-            from {
-                
-                opacity: 0;  
-            }
-
-            /* 75% {max-height: 500px;} */
-
-            to {
-               
-                opacity: 1;
-            }
+      @keyframes fade-in {
+        from {
+          opacity: 0;
         }
 
-        @keyframes fade-out {
-            from {
-                max-height: 500px; 
-            }
+        /* 75% {max-height: 500px;} */
 
-            to {
+        to {
+          opacity: 1;
+        }
+      }
 
-                opacity: 0; 
-                max-height: 0px;
-            }
+      @keyframes fade-out {
+        from {
+          max-height: 500px;
         }
 
-        .fade-in {
-            animation: fade-in 200ms ease-in;
+        to {
+          opacity: 0;
+          max-height: 0px;
         }
+      }
 
-        .fade-out {
-            animation: fade-out 200ms ease-out;
-        }
+      .fade-in {
+        animation: fade-in 200ms ease-in;
+      }
 
-        body {
-            background-color: rgb(217, 255, 217);
-        }
+      .fade-out {
+        animation: fade-out 200ms ease-out;
+      }
 
-        header {
-            padding: 1rem;
-            background-color: rgb(34, 197, 34);
+      body {
+        background-color: rgb(217, 255, 217);
+      }
 
-            display: flex; 
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
+      input {
+        padding: 0.2rem 0.5rem;
+      }
 
-        section {
-            /* padding: 5rem 10rem; */
-            max-width: 90%;
-            margin: 0 auto; 
-            padding-bottom: 1rem;
-            /* background-color: rgb(217, 255, 217); */
-            /* height: 100vh; */
-            
-            display: flex; 
-            flex-direction: column;
-            gap: 1rem;
-        }
+      header {
+        padding: 1rem;
+        background-color: rgb(34, 197, 34);
 
-        .descriptions {
-            display:flex; 
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .desc-header-container {
-            background-color: rgb(35, 226, 35);
-            padding: 0.5rem 0.5rem;
-            width: 90%;
-            border-radius: 0.2rem;
-        }
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
 
-        .desc-header-container:hover {
-            cursor: pointer;
-        }
+      section {
+        /* padding: 5rem 10rem; */
+        max-width: 90%;
+        margin: 0 auto;
+        padding-bottom: 1rem;
+        /* background-color: rgb(217, 255, 217); */
+        /* height: 100vh; */
 
-        .description {
-            background-color: rgb(235, 247, 235);
-            padding: 0.2rem 0.5rem;
-        }
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
 
-        
-        .values-container {
-            display: flex; 
-            align-items: center;
-            gap: 1rem;
+      .bold {
+        font-weight: bold;
+      }
 
-            /* outline: 3px solid red;  */
-            flex-wrap: wrap;
-        }
+      .ml {
+        margin-left: 20px;
+      }
 
-        #encrypt, #decrypt {
-            border-radius: 0.2rem;
-            border: none;
-            padding: 0.4rem 0.8rem;
-            
-            cursor: pointer;
-        }
+      .ml-lg {
+        margin-left: 37px;
+      }
 
-        #encrypt:hover{background-color: rgb(243, 209, 209); font-weight: bold;}
-        #decrypt:hover{background-color: rgb(209, 243, 209); font-weight: bold;}
+      .descriptions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
 
-        #encrypt {background-color: rgb(255, 74, 74); transition: background-color 400ms, font-weight 400ms;}
-        #decrypt {background-color: rgb(8, 184, 8); transition: background-color 400ms, font-weight 400ms;}
+      .desc-header-container {
+        background-color: rgb(35, 226, 35);
+        padding: 0.5rem 0.5rem;
+        width: 90%;
+        border-radius: 0.2rem;
+      }
 
-        textarea {
-            padding: 0.5rem 1rem;
-        }
+      .desc-header-container:hover {
+        cursor: pointer;
+      }
 
-        .error {
-            color: rgb(255, 0, 0); 
-            font-size: 0.8rem;
-            width: 200px;
-        }
+      .description {
+        background-color: rgb(235, 247, 235);
+        padding: 0.2rem 0.5rem;
+      }
 
-        .hidden {
-            display: none;
-        } 
+      .key-info {
+        font-weight: bold;
+      }
+
+      .values-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        /* outline: 3px solid red;  */
+        flex-wrap: wrap;
+      }
+
+      #encrypt,
+      #decrypt {
+        border-radius: 0.2rem;
+        border: none;
+        padding: 0.4rem 0.8rem;
+
+        cursor: pointer;
+      }
+
+      #decrypt:hover {
+        background-color: rgb(209, 243, 209);
+        font-weight: bold;
+      }
+
+      #encrypt {
+        background-color: rgb(255, 74, 74);
+        transition: background-color 400ms, font-weight 400ms;
+      }
+      #decrypt {
+        background-color: rgb(8, 184, 8);
+        transition: background-color 400ms, font-weight 400ms;
+      }
+
+      textarea {
+        padding: 0.5rem 1rem;
+      }
+
+      .error {
+        color: rgb(255, 0, 0);
+        font-size: 0.8rem;
+        width: 200px;
+      }
+
+      .hidden {
+        display: none;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>Cipher breaker</h1>
+      <h1>Cipher breaker</h1>
     </header>
 
     <section>
-        
-        <div class="descriptions">
-            <p class="intro">This is a simple application which allows you to play around with various ciphers. Select which cipher you are interested in and paste your plaintext/ciphertext. All ciphers used here are symmetric in  nature, meaning you'll need a to enter a key as well! If you can't think on one, a key will be autogenerated for you. </p>
+      <div class="descriptions">
+        <p class="intro">
+          This is a simple application which allows you to play around with
+          various ciphers. Select which cipher you are interested in and paste
+          your plaintext/ciphertext. All ciphers used here are symmetric in
+          nature, meaning you'll need a to enter a key as well! If you can't
+          think on one, a key will be autogenerated for you.
+        </p>
 
-            <div class="ceaser-desc-container" >
-                <div class="desc-header-container" data-expanded="false">
-                    <h1>Ceaser Cipher</h1>
-                    <div class=" hidden description">
-                        <p>
-                            In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
-                            <br> <br> 
-                            For this cipher, you must enter  a key which is a positive integer. This represents the shift number. 
-    
-                        </p>
-                    </div>
-                </div>
+        <div class="ceaser-desc-container">
+          <div class="desc-header-container" data-expanded="false">
+            <h2>Ceaser Cipher</h2>
+            <div class="hidden description">
+              <p class="ceasar-desc"></p>
             </div>
-
-            <div class="columnar-desc-container">
-                <div class="desc-header-container" data-expanded="false">
-                    <h1>Columnar Transposition Cipher</h1>
-                    <div class="hidden description">
-                        add the animation
-                        <p>
-                            In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="vigenere-desc-container">
-                <div class="desc-header-container" data-expanded="false">
-                    <h1>Vigenere Cipher</h1>
-                    <div class="hidden description">
-                        <p>
-                            In cryptography, a Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
+          </div>
         </div>
-        <textarea name="" id="user_input" cols="30" rows="10"></textarea>
-        <!-- <div class="input-area">
+
+        <div class="columnar-desc-container">
+          <div class="desc-header-container" data-expanded="false">
+            <h2>Columnar Transposition Cipher</h2>
+            <div class="hidden description">
+              <p class="columnar-desc"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="vigenere-desc-container">
+          <div class="desc-header-container" data-expanded="false">
+            <h2>Vigenere Cipher</h2>
+            <div class="hidden description">
+              <p class="vigenere-desc"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <textarea name="" id="user_input" cols="30" rows="10"></textarea>
+      <!-- <div class="input-area">
             <textarea name="" id="" cols="30" rows="10"></textarea>
         </div> -->
-        <div class="values-container">
-            <div> 
-                <label for="key">key: </label>
-                <input type="text" name="key" id="key">
-                <p class="error hidden">Please ensure your key consists of at least two unique characters.</p>
-                <!-- <p>key: <input type="text" name="key" id="key"></p> -->
-            </div>
-
-            <div>
-                <select name="ciphers" id="ciphers">
-                    <option value="ceasar">Ceasar Cipher</option>
-                    <option value="vigenere">Vigenere Cipher</option>
-                    <option value="columnar">Columnar Transposition Cipher</option>
-                </select>
-                
-                
-            </div>
-
-            <div>
-                <button id="encrypt">Encrypt</button>
-                <button id="decrypt">Decrypt</button>
-            </div>
-
-            
+      <div class="values-container">
+        <div>
+          <label for="key">key: </label>
+          <input type="text" name="key" id="key" />
+          <p class="error hidden">
+            Please ensure your key consists of at least two unique characters.
+          </p>
+          <!-- <p>key: <input type="text" name="key" id="key"></p> -->
         </div>
-        
-        <p>Here is your encrypted/decrypted text!</p>
-        <textarea name="result" id="result" cols="30" rows="10"></textarea>
+
+        <div>
+          <select name="ciphers" id="ciphers">
+            <option value="ceasar">Ceasar Cipher</option>
+            <option value="vigenere">Vigenere Cipher</option>
+            <option value="columnar">Columnar Transposition Cipher</option>
+          </select>
+        </div>
+
+        <div>
+          <button id="encrypt">Encrypt</button>
+          <button id="decrypt">Decrypt</button>
+        </div>
+      </div>
+
+      <p>Here is your encrypted/decrypted text!</p>
+      <textarea name="result" id="result" cols="30" rows="10"></textarea>
     </section>
-</body>
-<script src="../static/javascript/index.js">
-   
+  </body>
+  <script src="../static/javascript/index.js">
+
     // function removeErrors() {
     //     document.querySelector(".error").classList.add("hidden")
     // }
@@ -227,8 +256,8 @@
     //     const result = document.querySelector("#result")
 
     //     const requestData = {
-    //         userInput, 
-    //         key, 
+    //         userInput,
+    //         key,
     //         encryptFlag,
     //     }
     //     console.log(method)
@@ -236,8 +265,8 @@
     //     console.log(JSON.stringify(requestData))
 
     //     fetch(`http://localhost:5000/${method}`, {
-    //         body: JSON.stringify(requestData), 
-    //         method: "POST", 
+    //         body: JSON.stringify(requestData),
+    //         method: "POST",
     //         headers: {
     //         'Content-Type': 'application/json'
     //         },
@@ -248,14 +277,14 @@
     //     }).catch(error => console.log(error))
     // }
 
-    // // dispatcher 
-    
+    // // dispatcher
+
     // function keyCheckDispatcher(flag) {
-        
+
     //     const method = document.querySelector("#ciphers")[document.querySelector("#ciphers").selectedIndex].innerHTML.toLowerCase().replaceAll(" ", "_");
-        
+
     //     if (method === "columnar_transposition_cipher") {
-            
+
     //         keyCheckColumnar(method, flag)
 
     //     } else if (method === "vigenere_cipher") {
@@ -264,22 +293,22 @@
     //         console.log(method)
     //         keyCheckCeasar(method, flag )
     //     }
-        
+
     // }
-    
+
 
     // function isNumeric(key) {
     //     for(let i = 0; i < key.length; i ++) {
     //         code = key.charCodeAt(i)
-    //         if (!(code > 47 && code < 58) ) return false // numeric (0-9) 
+    //         if (!(code > 47 && code < 58) ) return false // numeric (0-9)
     //     }
-    //     return true 
+    //     return true
     // }
 
     // function keyCheckCeasar(method, flag) {
     //     console.log("in key check ceasar")
-    //     const key = document.querySelector("#key").value 
-        
+    //     const key = document.querySelector("#key").value
+
     //     if (!isNumeric(key)) {
     //         const errorMessage = document.querySelector(".error")
     //         errorMessage.classList.remove("hidden")
@@ -289,7 +318,7 @@
 
     // function keyCheckColumnar(method, flag) {
     //     console.log("in key check columnar")
-    //     const key = document.querySelector("#key").value 
+    //     const key = document.querySelector("#key").value
     //     if (key.length < 2 || key.replaceAll(key[0], "") === "") {
     //         const errorMessage = document.querySelector(".error")
     //         errorMessage.classList.remove("hidden")
@@ -301,15 +330,15 @@
     //         code = key.charCodeAt(i);
     //         if ((code > 64 && code < 91) || // upper alpha (A-Z)
     //             (code > 96 && code < 123)) { // lower alpha (a-z)
-    //         return true 
+    //         return true
     //         }
-    //     return false 
+    //     return false
     //     }
     // }
 
     // function keyCheckVigenere(method, flag) {
     //     console.log("in vigenere key check")
-    //     const key = document.querySelector("#key").value 
+    //     const key = document.querySelector("#key").value
     //     if (!hasAlpha(key)) {
     //         const errorMessage = document.querySelector(".error")
     //         errorMessage.classList.remove("hidden")
@@ -317,14 +346,13 @@
     //     } else sendData(flag, method, key)
     // }
 
-    // // add event listeners for the encrypt/decrypt buttons 
+    // // add event listeners for the encrypt/decrypt buttons
     // const encryptButton = document.querySelector("#encrypt")
     // const decryptButton = document.querySelector("#decrypt")
-    
+
     // // sendData("encrypt")
     // encryptButton.addEventListener("click", () => keyCheckDispatcher("encrypt"))
     // decryptButton.addEventListener("click", () => keyCheckDispatcher("decrypt"))
     // console.log(encryptButton)
-    
-</script>
+  </script>
 </html>
