@@ -3,7 +3,7 @@ from flask import Flask
 from flask import render_template, jsonify, request
 from flask_cors import CORS, cross_origin
 import ciphers
-
+import os 
 
 app = Flask(__name__)
 CORS(app)
@@ -56,3 +56,6 @@ def ceasar_cipher():
         response = {"text": cipher.decrypt(request_data["userInput"]) }
 
     return jsonify(response)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
