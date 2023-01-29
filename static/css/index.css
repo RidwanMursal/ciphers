@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  /* 75% {max-height: 500px;} */
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    max-height: 500px;
+  }
+
+  to {
+    opacity: 0;
+    max-height: 0px;
+  }
+}
+
+.fade-in {
+  animation: fade-in 200ms ease-in;
+}
+
+.fade-out {
+  animation: fade-out 200ms ease-out;
+}
+
+body {
+  background-color: rgb(217, 255, 217);
+}
+
+input {
+  padding: 0.2rem 0.5rem;
+}
+
+header {
+  padding: 1rem;
+  background-color: rgb(34, 197, 34);
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+section {
+  /* padding: 5rem 10rem; */
+  max-width: 90%;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  /* background-color: rgb(217, 255, 217); */
+  /* height: 100vh; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.ml {
+  margin-left: 20px;
+}
+
+.ml-lg {
+  margin-left: 37px;
+}
+
+.descriptions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.desc-header-container {
+  background-color: rgb(35, 226, 35);
+  padding: 0.5rem 0.5rem;
+  width: 90%;
+  border-radius: 0.2rem;
+}
+
+.desc-header-container:hover {
+  cursor: pointer;
+}
+
+.description {
+  background-color: rgb(235, 247, 235);
+  padding: 0.2rem 0.5rem;
+}
+
+.key-info {
+  font-weight: bold;
+}
+
+.values-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  /* outline: 3px solid red;  */
+  flex-wrap: wrap;
+}
+
+#encrypt,
+#decrypt {
+  border-radius: 0.2rem;
+  border: none;
+  padding: 0.4rem 0.8rem;
+
+  cursor: pointer;
+}
+
+#decrypt:hover {
+  background-color: rgb(209, 243, 209);
+  font-weight: bold;
+}
+
+#encrypt {
+  background-color: rgb(255, 74, 74);
+  transition: background-color 400ms, font-weight 400ms;
+}
+#decrypt {
+  background-color: rgb(8, 184, 8);
+  transition: background-color 400ms, font-weight 400ms;
+}
+
+textarea {
+  padding: 0.5rem 1rem;
+}
+
+.error {
+  color: rgb(255, 0, 0);
+  font-size: 0.8rem;
+  width: 200px;
+}
+
+.hidden {
+  display: none;
+}
