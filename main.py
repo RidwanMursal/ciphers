@@ -47,7 +47,7 @@ def vigenere_cipher():
 # @cross_origin(origin='*')
 def ceasar_cipher():
     # get class 
-    print("IN CEASAR CIPHER")
+    #print("IN CEASAR CIPHER")
     request_data = request.get_json()
     cipher = ciphers.Ceaser_Cipher(int( request_data["key"] ))
     if (request_data["encryptFlag"] == "encrypt"):
@@ -58,4 +58,4 @@ def ceasar_cipher():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=os.getenv("PORT", default=5000))
+    app.run(host="0.0.0.0", debug=True, port=os.getenv("PORT", default=5000))
