@@ -44,6 +44,7 @@ def vigenere_cipher():
     return jsonify(response)
 
 @app.route("/ceasar_cipher", methods=["POST"])
+
 @cross_origin(origin='*')
 def ceasar_cipher():
     # get class 
@@ -58,4 +59,4 @@ def ceasar_cipher():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=os.getenv("PORT", default=5000))
+    app.run(debug=False, port=os.getenv("PORT", default=5000))
