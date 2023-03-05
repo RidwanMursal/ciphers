@@ -133,7 +133,9 @@ function sendData(encryptFlag, method, key) {
   console.log(requestData);
   console.log(JSON.stringify(requestData));
 
-  fetch(`http://localhost:5000/${method}`, {
+  //`http://localhost:5000/${method}`
+
+  fetch(`http://172.17.2.84:5000/${method}`, {
     body: JSON.stringify(requestData),
     method: "POST",
     headers: {
