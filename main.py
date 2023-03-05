@@ -10,12 +10,12 @@ CORS(app)
 
 
 @app.route("/")
-# @cross_origin(origin='*')
+@cross_origin(origin='*')
 def hello_world():
     return render_template("index.html")
 
 @app.route("/columnar_transposition_cipher", methods=["POST"])
-# @cross_origin(origin='*')
+@cross_origin(origin='*')
 def columnar_cipher():
     # get class 
     print("IN COLUMNAR")
@@ -29,7 +29,7 @@ def columnar_cipher():
     return jsonify(response)
 
 @app.route("/vigenere_cipher", methods=["POST"])
-# @cross_origin(origin='*')
+@cross_origin(origin='*')
 def vigenere_cipher():
     # get class 
     print("IN VIGEENRE")
@@ -44,7 +44,7 @@ def vigenere_cipher():
     return jsonify(response)
 
 @app.route("/ceasar_cipher", methods=["POST"])
-# @cross_origin(origin='*')
+@cross_origin(origin='*')
 def ceasar_cipher():
     # get class 
     #print("IN CEASAR CIPHER")
