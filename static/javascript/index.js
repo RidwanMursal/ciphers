@@ -135,7 +135,7 @@ function sendData(encryptFlag, method, key) {
 
   //`http://localhost:5000/${method}`
 
-  fetch(`http://172.17.2.84:5000/${method}`, {
+  fetch(`https://ciphers-production.up.railway.app:5000/${method}`, {
     body: JSON.stringify(requestData),
     method: "POST",
     headers: {
